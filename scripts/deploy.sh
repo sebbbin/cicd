@@ -45,7 +45,7 @@ sudo nginx -s reload
 
 echo "> $GREEN_PROFILE 10초 후 Health check 시작"
 echo "> curl -s http://localhost:$GREEN_PORT/actuator/health "
-sleep 10
+sleep 1
 
 for retry_count in {1..10}
 do
@@ -70,7 +70,7 @@ do
   fi
 
   echo "> Health check 연결 실패. 재시도..."
-  sleep 10
+  sleep 1
 done
 
 echo "> $BLUE_PROFILE 에서 구동중인 애플리케이션 pid 확인"
@@ -83,5 +83,5 @@ else
   echo "> 기존 ${BLUE_PROFILE} 서버 중단"
   echo "> kill -15 $BLUE_PID"
   kill -15 $BLUE_PID
-  sleep 5
+  sleep 1
 fi
